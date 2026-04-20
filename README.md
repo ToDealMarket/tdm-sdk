@@ -8,6 +8,9 @@
 
 [![npm](https://img.shields.io/badge/npm-tdm--sdk-ff69b4?style=flat-square&logo=npm&logoColor=white)](https://www.npmjs.com/package/tdm-sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-ff69b4?style=flat-square)](./LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/ToDealMarket/tdm-sdk?style=flat-square&color=ff69b4)](https://github.com/ToDealMarket/tdm-sdk/stargazers)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-ff69b4?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![npm downloads](https://img.shields.io/npm/dm/tdm-sdk?style=flat-square&color=ff69b4)](https://www.npmjs.com/package/tdm-sdk)
 
 *Thin public surface for payable code, authorize, checkout, and session-tank flows*
 
