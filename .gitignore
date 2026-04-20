@@ -24,6 +24,9 @@ full-test.log
 .mcp.json
 .tmp-mcp.json
 
+# CI/CD traces
+.ci-traces/
+
 # Environment files
 .env
 .env.local
@@ -47,4 +50,10 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# Development
 dev/
+
+# Git
+.git/
+.github/workflows/
