@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tdm.local/schemas/package.schema.json",
+  "title": "Local package.json schema",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "sideEffects": {
+      "type": [
+        "boolean",
+        "array"
+      ]
+    },
+    "main": {
+      "type": "string"
+    },
+    "module": {
+      "type": "string"
+    },
+    "types": {
+      "type": "string"
+    },
+    "bin": {
+      "type": [
+        "string",
+        "object"
+      ]
+    },
+    "exports": {
+      "type": [
+        "object",
+        "string"
+      ]
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "engines": {
+      "type": "object"
+    },
+    "scripts": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "homepage": {
+      "type": "string"
+    },
+    "repository": {
+      "type": [
+        "string",
+        "object"
+      ]
+    },
+    "bugs": {
+      "type": [
+        "string",
+        "object"
+      ]
+    },
+    "license": {
+      "type": "string"
+    },
+    "publishConfig": {
+      "type": "object"
+    },
+    "dependencies": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "devDependencies": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "name",
+    "version"
+  ],
+  "additionalProperties": true
+}

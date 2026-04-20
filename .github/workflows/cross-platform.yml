@@ -1,0 +1,79 @@
+name: TDM SDK Cross-Platform
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+jobs:
+  tdm-sdk-cross-platform:
+    name: TDM SDK (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    defaults:
+      run:
+        working-directory: .
+    env:
+      TDM_TEST_TRACE_DIR: ${{ github.workspace }}/.ci-traces/${{ matrix.os }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Install Linux keyring dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libsecret-1-dev dbus-x11
+
+      - name: Install TDM SDK dependencies
+        run: npm ci
+
+      - name: Build TDM SDK
+        run: npm run build
+
+      - name: Typecheck TDM SDK
+        run: npm run typecheck
+
+      - name: Smoke test CLI
+        if: runner.os != 'Linux'
+        run: npm run smoke:cli
+
+      - name: Smoke test CLI (Linux session bus)
+        if: runner.os == 'Linux'
+        run: dbus-run-session -- npm run smoke:cli
+
+      - name: Launcher PTY regression
+        run: npm run test:launcher-pty
+
+      - name: Test TDM SDK
+        run: npx vitest run --exclude test/cli-launcher-pty.test.ts
+
+      - name: Verify npm pack output
+        run: npm run pack:verify
+
+      - name: Upload launcher trace logs
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: cli-trace-logs-${{ matrix.os }}
+          path: ${{ env.TDM_TEST_TRACE_DIR }}/**/launcher-trace.log
+          if-no-files-found: ignore
+          retention-days: 7

@@ -1,0 +1,2 @@
+# Exclude from build
+src/cli/launcher-tsx/**

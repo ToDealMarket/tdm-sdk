@@ -1,0 +1,31 @@
+{
+  "name": "tdm-protocol",
+  "version": "0.0.1",
+  "description": "Stable public wire contract for TDM SDKs and integrations",
+  "type": "module",
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js",
+      "default": "./src/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "keywords": [
+    "tdm",
+    "protocol",
+    "x402",
+    "payments",
+    "sdk"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "zod": "^4.3.6"
+  }
+}

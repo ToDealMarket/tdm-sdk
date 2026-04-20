@@ -1,0 +1,135 @@
+{
+  "$schema": "./package.schema.json",
+  "name": "tdm-sdk",
+  "version": "0.0.2-beta",
+  "description": "Open contract-facing TDM SDK for payable routes, authorize flows, checkout, and session tanks",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
+    },
+    "./crypto": {
+      "types": "./dist/crypto.d.ts",
+      "import": "./dist/crypto.mjs",
+      "require": "./dist/crypto.cjs"
+    },
+    "./make-payable": {
+      "types": "./dist/make-payable.d.ts",
+      "import": "./dist/make-payable.mjs",
+      "require": "./dist/make-payable.cjs"
+    },
+    "./local-402-circuit": {
+      "types": "./dist/local-402-circuit.d.ts",
+      "import": "./dist/local-402-circuit.mjs",
+      "require": "./dist/local-402-circuit.cjs"
+    },
+    "./local-vault": {
+      "types": "./dist/local-vault.d.ts",
+      "import": "./dist/local-vault.mjs",
+      "require": "./dist/local-vault.cjs"
+    },
+    "./fetch-hook-client": {
+      "types": "./dist/fetch-hook-client.d.ts",
+      "import": "./dist/fetch-hook-client.mjs",
+      "require": "./dist/fetch-hook-client.cjs"
+    },
+    "./authorize": {
+      "types": "./dist/authorize.d.ts",
+      "import": "./dist/authorize.mjs",
+      "require": "./dist/authorize.cjs"
+    },
+    "./gateway-auth": {
+      "types": "./dist/gateway-auth.d.ts",
+      "import": "./dist/gateway-auth.mjs",
+      "require": "./dist/gateway-auth.cjs"
+    },
+    "./gateway-clients": {
+      "types": "./dist/gateway-clients.d.ts",
+      "import": "./dist/gateway-clients.mjs",
+      "require": "./dist/gateway-clients.cjs"
+    },
+    "./checkout": {
+      "types": "./dist/checkout.d.ts",
+      "import": "./dist/checkout.mjs",
+      "require": "./dist/checkout.cjs"
+    },
+    "./session-tanks": {
+      "types": "./dist/session-tanks.d.ts",
+      "import": "./dist/session-tanks.mjs",
+      "require": "./dist/session-tanks.cjs"
+    },
+    "./gateway-transport": {
+      "types": "./dist/gateway-transport.d.ts",
+      "import": "./dist/gateway-transport.mjs",
+      "require": "./dist/gateway-transport.cjs"
+    },
+    "./framework-mode": {
+      "types": "./dist/framework-mode.d.ts",
+      "import": "./dist/framework-mode.mjs",
+      "require": "./dist/framework-mode.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run build:sdk && npm run build:types",
+    "build:fast": "npm run build:sdk",
+    "build:sdk": "node --max-old-space-size=4096 ./node_modules/tsup/dist/cli-default.js --config tsup.sdk.config.ts",
+    "build:types": "node ./node_modules/tsup/dist/cli-default.js --config tsup.types.config.ts",
+    "typecheck": "tsc --noEmit",
+    "pack:verify": "node scripts/verify-pack.mjs",
+    "clean": "node scripts/clean-dist.mjs"
+  },
+  "keywords": [
+    "tdm",
+    "sdk",
+    "x402",
+    "payments",
+    "agents",
+    "gateway",
+    "pre-release",
+    "preview",
+    "opensource"
+  ],
+  "homepage": "https://todealmarket.com/docs/api/sdk",
+  "tdmPublicRepo": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ToDealMarket/tdm-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ToDealMarket/tdm-sdk/issues"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "tag": "beta"
+  },
+  "dependencies": {
+    "bs58": "^6.0.0",
+    "keytar": "^7.9.0",
+    "proper-lockfile": "^4.1.2",
+    "tweetnacl": "^1.0.3",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.1",
+    "@types/proper-lockfile": "^4.1.4",
+    "tsup": "^8.5.0",
+    "typescript": "^5.7.2"
+  }
+}

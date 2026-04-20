@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.*
+
+# Build outputs
+dist/
+build/
+coverage/
+.vite/
+.turbo/
+storybook-static/
+*.tsbuildinfo
+*.d.ts.map
+
+# Local runtime / temp
+tmp/
+tmp/public-repo/
+temp/
+logs/
+*.log
+full-test.log
+.tdm-cli-smoke-*/
+.mcp.json
+.tmp-mcp.json
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.test
+.env.migrations
+.dev.vars
+!.env.example
+!.env.*.example
+
+# Pack / release artifacts
+*.tgz
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+dev/
