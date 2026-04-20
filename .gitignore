@@ -7,7 +7,6 @@ node_modules/
 dist/
 build/
 coverage/
-scripts/
 .vite/
 .turbo/
 storybook-static/
@@ -39,11 +38,6 @@ full-test.log
 .dev.vars
 !.env.example
 !.env.*.example
-
-# Documentation and scripts
-RELEASING.md
-CHANGELOG.md
-scripts/
 
 # Pack / release artifacts
 *.tgz
