@@ -40,6 +40,11 @@ full-test.log
 !.env.example
 !.env.*.example
 
+# Documentation and scripts
+RELEASING.md
+CHANGELOG.md
+scripts/
+
 # Pack / release artifacts
 *.tgz
 
@@ -54,8 +59,3 @@ Thumbs.db
 
 # Development
 dev/
-
-# Documentation
-RELEASING.md
-CHANGELOG.md
-scripts/
